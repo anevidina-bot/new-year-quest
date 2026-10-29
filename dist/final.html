@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Снегоград снова встречает Новый год</title>
+  <style>
+    :root{--paper:#fff9e9;--ink:#30344c;--gold:#efbf59;--night:#112e4e}*{box-sizing:border-box}body{margin:0;min-height:100svh;background:#153755;color:#fff;font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif}.finale{isolation:isolate;position:relative;min-height:100svh;overflow:hidden;display:grid;align-items:center;padding:clamp(26px,6vw,82px)}.finale:before{content:"";position:absolute;inset:0;background:url("assets/snegograd-finale.png") center/cover no-repeat;z-index:-3;animation:arrive 1.1s ease both}.finale:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,25,48,.83),rgba(10,30,48,.58) 35%,rgba(7,25,48,.08) 72%),linear-gradient(0deg,rgba(6,20,34,.52),transparent 48%);z-index:-2}.snow{position:absolute;inset:0;pointer-events:none;z-index:4;background-image:radial-gradient(circle at 12% 18%,#fff 0 1.5px,transparent 2px),radial-gradient(circle at 80% 7%,#fff 0 1px,transparent 2px),radial-gradient(circle at 25% 80%,#fff 0 2px,transparent 3px),radial-gradient(circle at 62% 50%,#fff 0 1px,transparent 2px);background-size:132px 163px,93px 109px,178px 197px,121px 143px;opacity:.8;animation:snow 9s linear infinite}.content{position:relative;z-index:2;width:min(555px,100%);margin-left:clamp(0px,4vw,70px)}.eyebrow{display:inline-flex;align-items:center;gap:8px;color:#f7d68b;font-size:12px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;text-shadow:0 2px 6px #08213c}.eyebrow:before{content:"✦";font-size:19px}.title{font:clamp(38px,5.5vw,70px)/.94 Georgia,serif;letter-spacing:-.05em;margin:13px 0 15px;text-shadow:0 3px 0 #08213c}.lead{margin:0 0 18px;font-size:clamp(16px,1.8vw,20px);line-height:1.5;color:#fff8e8;text-shadow:0 2px 9px #092039}.prediction{position:relative;padding:22px 24px 20px;background:var(--paper);color:var(--ink);border-radius:17px;box-shadow:0 18px 43px #001a;transform:rotate(-1deg)}.prediction:before{content:"";position:absolute;inset:9px;border:1px dashed #ba9363;border-radius:11px;pointer-events:none}.prediction h2{position:relative;margin:0 0 9px;font:clamp(23px,3vw,30px)/1 Georgia,serif;color:#573b25}.prediction p{position:relative;margin:0;font:clamp(17px,2.1vw,21px)/1.45 Georgia,serif}.actions{position:relative;display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.btn{border:0;border-radius:14px;padding:13px 16px;background:var(--gold);color:#51350b;font-weight:950;font-size:15px;box-shadow:0 5px 0 #b77e28,0 10px 18px #0003;cursor:pointer;transition:.18s transform}.btn:hover{transform:translateY(-2px)}.btn.secondary{background:#e7edf0;color:#344456;box-shadow:0 5px 0 #a9b6bd}.btn.text{background:#123250dd;color:#fff8e8;box-shadow:none;border:1px solid #f6dea477}.plush{position:absolute;z-index:2;right:clamp(24px,8vw,150px);bottom:clamp(12px,4vw,55px);width:min(19vw,220px);filter:drop-shadow(0 14px 14px #0018);animation:plush .9s .25s cubic-bezier(.18,.8,.3,1) both;pointer-events:none}.star-count{margin-top:14px;font-size:13px;font-weight:900;color:#fff3bd;text-shadow:0 2px 7px #08213c}@keyframes arrive{from{opacity:.45;transform:scale(1.025)}to{opacity:1;transform:none}}@keyframes snow{to{background-position:35px 190px,-21px 130px,40px 220px,-33px 165px}}@keyframes plush{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}@media(max-width:720px){.finale{align-items:start;padding:37px 20px 24px}.finale:after{background:linear-gradient(0deg,rgba(7,25,48,.94) 5%,rgba(7,25,48,.58) 68%,rgba(7,25,48,.25))}.content{margin:0;width:min(100%,530px)}.title{font-size:clamp(37px,12vw,58px)}.lead{font-size:15px}.prediction{padding:19px 18px}.prediction p{font-size:17px}.actions{gap:8px}.btn{font-size:14px;padding:12px 13px}.plush{width:min(34vw,150px);right:16px;bottom:12px}.star-count{margin-top:12px}}
+  </style>
+</head>
+<body>
+  <main class="finale">
+    <div class="snow"></div>
+    <section class="content">
+      <div class="eyebrow">Дело закрыто · 4 из 4 искр</div>
+      <h1 class="title">Снегоград снова встречает Новый год</h1>
+      <p class="lead">Главная Звезда вернулась на ёлку, часы пошли, а Плюш наконец может отдохнуть у праздничных огней.</p>
+      <section class="prediction"><h2>Ваше предсказание</h2><p id="predictionText"></p></section>
+      <div class="actions"><button class="btn" onclick="newPrediction()">Новое предсказание</button><button class="btn secondary" onclick="location.href='index.html?completed=4'">Посмотреть карту</button><button class="btn text" onclick="location.href='index.html'">Пройти заново</button></div>
+      <div class="star-count">✦ Все четыре искры праздника найдены</div>
+    </section>
+    <img class="plush" src="assets/plush-finale.png" alt="Плюш в новогоднем колпачке с бенгальским огнём">
+  </main>
+  <script>
+    const predictions=['В новом году вы найдёте время для дела, которое давно ждало вашего первого шага.','Вас ждёт разговор, после которого одна хорошая идея станет общей.','В следующем году ваш маленький жест принесёт кому-то большую поддержку.','Удача придёт не шумно, а в тот момент, когда вы решите поделиться теплом.','Одна случайная встреча принесёт вам повод улыбнуться и новый замысел.'];
+    const supplied=new URLSearchParams(location.search).get('prediction');
+    const text=document.querySelector('#predictionText');
+    text.textContent=supplied||predictions[Math.floor(Math.random()*predictions.length)];
+    function newPrediction(){let next=predictions[Math.floor(Math.random()*predictions.length)];while(predictions.length>1&&next===text.textContent){next=predictions[Math.floor(Math.random()*predictions.length)]}text.textContent=next}
+  </script>
+</body>
+</html>
+
