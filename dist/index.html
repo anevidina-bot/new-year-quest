@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Снегоград: дело о пропавшей полуночи</title>
+  <style>
+    :root{--paper:#fffaf0;--ink:#26324f;--gold:#edbd5a;--navy:#173352;--seal:#a84750}*{box-sizing:border-box}body{margin:0;min-height:100svh;background:#0f2742;color:var(--paper);font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif}.screen{display:none;min-height:100svh;position:relative;overflow:hidden}.screen.active{display:grid}.title-screen{isolation:isolate;align-items:center;background:#183652}.title-screen:before,.scene:before{content:"";position:absolute;inset:0;background:url("assets/snegograd-square.png") center/cover no-repeat;z-index:-3;animation:soft-in 1.1s ease both}.title-screen:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,25,48,.91) 0%,rgba(14,39,66,.75) 37%,rgba(11,31,52,.17) 68%,rgba(10,26,42,.42)),linear-gradient(0deg,rgba(6,20,34,.57),transparent 42%);z-index:-2}.content{width:min(1180px,100%);margin:auto;padding:clamp(30px,7vw,94px);display:grid;grid-template-columns:minmax(0,570px) 1fr;align-items:end;gap:20px}.copy{position:relative;z-index:2;padding-bottom:7vh}.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:#f7d68b}.eyebrow:before{content:"✦";font-size:20px}.title{font-family:Georgia,serif;font-size:clamp(48px,7vw,88px);line-height:.9;letter-spacing:-.055em;margin:16px 0 23px;text-wrap:balance;text-shadow:0 3px 0 #08213c}.lead{max-width:520px;font-size:clamp(17px,2vw,21px);line-height:1.56;margin:0;color:#fff8e8;text-shadow:0 2px 10px #091f35}.btn{display:inline-flex;align-items:center;gap:10px;margin-top:28px;padding:15px 21px;border:0;border-radius:15px;background:var(--gold);color:#51350b;font-weight:950;font-size:16px;box-shadow:0 6px 0 #b77e28,0 14px 25px #0005;cursor:pointer;transition:.18s transform}.btn:hover{transform:translateY(-3px)}.btn:active{transform:translateY(3px);box-shadow:0 3px 0 #b77e28}.plush{position:relative;z-index:1;justify-self:end;align-self:end;width:min(37vw,420px);max-height:78svh;object-fit:contain;object-position:bottom;filter:drop-shadow(0 20px 20px #0008);animation:plush-arrive 1s .25s cubic-bezier(.18,.8,.3,1) both}.snow{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle at 12% 18%,#fff 0 1.5px,transparent 2px),radial-gradient(circle at 80% 7%,#fff 0 1px,transparent 2px),radial-gradient(circle at 25% 80%,#fff 0 2px,transparent 3px),radial-gradient(circle at 62% 50%,#fff 0 1px,transparent 2px);background-size:132px 163px,93px 109px,178px 197px,121px 143px;opacity:.78;z-index:5;animation:snow 9s linear infinite}.footer{position:absolute;z-index:6;right:clamp(20px,5vw,62px);bottom:18px;font-size:12px;color:#fff7dfaa}.scene{isolation:isolate;place-items:center}.scene:before{z-index:-3}.scene:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 55%,transparent 20%,rgba(5,18,34,.48) 100%);z-index:-2}.scene-caption{position:absolute;top:clamp(22px,5vw,55px);left:50%;transform:translateX(-50%);z-index:2;width:min(590px,calc(100% - 42px));text-align:center;text-shadow:0 2px 12px #08203a}.scene-caption h2{font-family:Georgia,serif;margin:0 0 8px;font-size:clamp(28px,5vw,48px);line-height:1}.scene-caption p{margin:0;font-size:16px;color:#fff6e4}.plush-scene{position:absolute;right:clamp(6vw,11vw,15vw);bottom:-2vh;width:min(30vw,330px);z-index:2;filter:drop-shadow(0 17px 16px #0009);animation:plush-arrive .8s ease both}.note{position:absolute;left:51%;top:67%;transform:translate(-50%,-50%) rotate(-8deg);z-index:3;width:clamp(105px,14vw,160px);aspect-ratio:1.3;background:linear-gradient(135deg,#fff8db,#ead39b);border:2px solid #a47b43;border-radius:3px 5px 7px 3px;box-shadow:0 14px 18px #0017,0 2px 0 #fff9;cursor:pointer;padding:16px 10px 8px;text-align:center;color:#513d26;font-family:Georgia,serif;font-weight:bold;transition:.2s transform}.note:hover{transform:translate(-50%,-54%) rotate(-5deg) scale(1.06)}.note:after{content:"✦";position:absolute;right:10px;bottom:8px;color:var(--seal);font-size:24px}.tap{position:absolute;left:50%;top:calc(67% + 88px);transform:translateX(-50%);z-index:4;color:#fffbea;font-size:13px;font-weight:900;text-shadow:0 2px 6px #09223a;white-space:nowrap;animation:pulse 1.3s ease-in-out infinite}.opened-note{display:none;position:relative;z-index:8;width:min(600px,calc(100% - 38px));padding:clamp(26px,5vw,50px);background:#fff9e8;color:#3a3546;border-radius:8px 9px 8px 13px;box-shadow:0 24px 55px #001a;transform:rotate(-1deg);text-align:center}.opened-note:before{content:"";position:absolute;inset:11px;border:1px dashed #ba9363;border-radius:5px;pointer-events:none}.opened-note h3{position:relative;font-family:Georgia,serif;font-size:clamp(28px,5vw,42px);margin:0 0 19px;color:#513d26}.opened-note p{position:relative;font-family:Georgia,serif;font-size:clamp(21px,3vw,28px);line-height:1.42;margin:0}.opened-note .btn{position:relative}.scene.note-open .note,.scene.note-open .tap,.scene.note-open .scene-caption,.scene.note-open .plush-scene{opacity:0;pointer-events:none;transition:.3s opacity}.scene.note-open .opened-note{display:block;animation:unfold .42s cubic-bezier(.2,.8,.3,1) both}@keyframes soft-in{from{transform:scale(1.035);opacity:.5}to{transform:none;opacity:1}}@keyframes plush-arrive{from{opacity:0;transform:translateY(30px) rotate(2deg)}to{opacity:1;transform:none}}@keyframes snow{to{background-position:35px 190px,-21px 130px,40px 220px,-33px 165px}}@keyframes pulse{50%{transform:translateX(-50%) translateY(-5px)}}@keyframes unfold{from{opacity:0;transform:rotate(-6deg) scale(.72)}to{opacity:1;transform:rotate(-1deg) scale(1)}}@media(max-width:720px){.title-screen:after{background:linear-gradient(0deg,rgba(7,25,48,.96) 6%,rgba(7,25,48,.55) 62%,rgba(7,25,48,.16)),linear-gradient(90deg,rgba(7,25,48,.35),transparent)}.content{min-height:100svh;padding:45px 24px 25px;grid-template-columns:1fr;grid-template-rows:auto 1fr;align-items:start}.copy{padding:0}.title{font-size:clamp(46px,15vw,70px)}.lead{font-size:16px}.plush{width:min(67vw,325px);max-height:48svh;justify-self:end;align-self:end}.footer{left:24px;right:auto}.plush-scene{width:min(51vw,270px);right:3vw;bottom:5vh}.note{left:39%;top:68%;width:124px}.tap{left:39%;top:calc(68% + 78px)}.scene-caption{top:30px}.opened-note{margin-top:90px}}
+  </style>
+  <style>
+    /* The clue should feel discovered, not explained. */
+    .scene-caption,.tap{display:none}.note{width:92px;padding:10px 6px 6px;font-size:11px;top:69%}.note:before{content:'↙';position:absolute;left:-23px;top:-37px;color:#fff3bd;font-family:Georgia,serif;font-size:39px;line-height:1;text-shadow:0 2px 5px #102b46;animation:pointer 1.4s ease-in-out infinite}.note:hover:before{animation:none}@keyframes pointer{50%{transform:translate(4px,5px)}}@media(max-width:720px){.note{width:86px;top:70%;left:39%}}
+  </style>
+  <style>
+    .note{left:50%;top:78%;font-size:0;background:linear-gradient(135deg,#fff8db,#ead39b)}
+    .note:before{left:-17px;top:-32px;font-size:32px}
+    @media(max-width:720px){.note{left:50%;top:74%}}
+  </style>
+  <style>
+    .map-screen{isolation:isolate;place-items:center;background:#0e2945}.map-screen:before{content:"";position:absolute;inset:0;background:url("assets/snegograd-map.png") center/cover no-repeat;z-index:-3}.map-screen:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,25,48,.58),transparent 28%,transparent 70%,rgba(7,25,48,.58));z-index:-2}.map-head{position:absolute;z-index:5;top:clamp(22px,4vw,48px);left:50%;transform:translateX(-50%);width:min(680px,calc(100% - 42px));text-align:center;text-shadow:0 2px 10px #08203a}.map-head .eyebrow{justify-content:center}.map-head h2{font-family:Georgia,serif;font-size:clamp(30px,5vw,50px);line-height:1;margin:7px 0}.map-head p{margin:0;font-size:15px;color:#fff7e7}.pin{position:absolute;z-index:4;transform:translate(-50%,-100%);width:54px;height:54px;border:3px solid #fff5d7;border-radius:50% 50% 50% 0;background:#a84750;box-shadow:0 5px 0 #592c43,0 8px 18px #051c36aa;rotate:-45deg;cursor:pointer;transition:.2s transform}.pin span{display:grid;place-items:center;width:100%;height:100%;rotate:45deg;font-size:24px}.pin:hover:not(:disabled){transform:translate(-50%,-108%) scale(1.08)}.pin:disabled{background:#526479;border-color:#c7d1d3;box-shadow:0 4px 0 #344457;cursor:not-allowed;filter:saturate(.5)}.pin.active{animation:pinGlow 1.3s ease-in-out infinite alternate}@keyframes pinGlow{to{box-shadow:0 5px 0 #592c43,0 0 0 7px #f7ce6a66,0 8px 18px #051c36aa}}.pin.one{left:17%;top:76%}.pin.two{left:35%;top:38%}.pin.three{left:82%;top:38%}.pin.four{left:85%;top:77%}.map-plush{position:absolute;z-index:3;width:clamp(80px,12vw,150px);left:11%;top:73%;filter:drop-shadow(0 9px 8px #0017);transition:left .9s cubic-bezier(.2,.8,.2,1),top .9s cubic-bezier(.2,.8,.2,1)}.map-key{position:absolute;z-index:5;bottom:clamp(18px,4vw,42px);left:50%;transform:translateX(-50%);display:flex;gap:7px;background:#102c4bdd;border:1px solid #f6dea499;border-radius:99px;padding:9px 13px;backdrop-filter:blur(4px);white-space:nowrap;font-size:12px;color:#fff8e9}.map-key b{color:#f4ca64}.map-card{display:none;position:absolute;z-index:10;left:50%;top:55%;transform:translate(-50%,-50%);width:min(450px,calc(100% - 34px));padding:26px;background:#fff9e8;color:#39364b;border-radius:18px;box-shadow:0 25px 55px #0019;text-align:center}.map-card.show{display:block;animation:unfold .35s ease both}.map-card h3{font-family:Georgia,serif;margin:0 0 9px;font-size:28px;color:#513d26}.map-card p{margin:0;line-height:1.45}.map-card .btn{margin-top:18px}.map-card .back{display:block;background:none;border:0;margin:13px auto 0;color:#765f47;text-decoration:underline;cursor:pointer;font-size:13px}@media(max-width:720px){.map-screen:before{background-position:51% center}.map-head{top:27px}.map-head h2{font-size:32px}.map-head p{font-size:13px}.pin{width:44px;height:44px}.pin span{font-size:19px}.pin.one{left:15%;top:74%}.pin.two{left:34%;top:40%}.pin.three{left:82%;top:38%}.pin.four{left:84%;top:75%}.map-plush{width:95px;left:7%;top:72%}.map-key{font-size:11px}}
+  </style>
+  <style>
+    .note:before{content:'↓';left:50%;top:-39px;transform:translateX(-50%);font-size:34px;animation:notePointer 1.4s ease-in-out infinite}@keyframes notePointer{50%{transform:translate(-50%,5px)}}
+  </style>
+  <style>
+    .map-plush{left:5%;top:69%;width:clamp(64px,8vw,105px);transition:left 1.7s cubic-bezier(.22,.75,.25,1),top 1.7s cubic-bezier(.22,.75,.25,1)}.map-plush.no-transition{transition:none}
+    @media(max-width:720px){.map-plush{left:3%;top:68%;width:72px}}
+  </style>
+  <style>
+    .final-link{position:absolute;z-index:8;right:clamp(15px,3vw,36px);top:clamp(16px,3vw,30px);display:inline-flex;align-items:center;gap:8px;border:1px solid #fff0b3;background:#a84750;color:#fff9e8;border-radius:999px;padding:10px 14px;font:800 13px/1 ui-rounded,"Trebuchet MS",system-ui,sans-serif;box-shadow:0 5px 0 #592c43,0 9px 19px #0018;cursor:pointer;animation:finalGlow 1.5s ease-in-out infinite alternate}.final-link:hover{transform:translateY(-2px)}.final-link span{font-size:19px;color:#ffe39a}@keyframes finalGlow{to{box-shadow:0 5px 0 #592c43,0 0 0 6px #f7ce6a55,0 9px 19px #0018}}@media(max-width:720px){.final-link{top:auto;bottom:70px;right:15px;padding:9px 12px;font-size:12px}}
+  </style>
+</head>
+<body>
+  <main class="screen title-screen active" id="start">
+    <div class="snow"></div>
+    <div class="content"><section class="copy"><div class="eyebrow">Сказочный квест на 10–15 минут</div><h1 class="title">Снегоград<br>без Нового года</h1><p class="lead">Главная Звезда исчезла, городские часы застыли на 23:59, а праздник будто забыл дорогу. Котик-детектив Плюш уже на площади.</p><button class="btn" onclick="openScene()">Выйти на площадь <span>→</span></button></section><img class="plush" src="assets/plush-detective.png" alt="Котик-детектив Плюш с фонарём"></div><div class="footer">Снегоград ждёт своего детектива</div>
+  </main>
+  <main class="screen scene" id="square">
+    <div class="snow"></div><div class="scene-caption"><h2>Площадь застывших часов</h2><p>Плюш заметил что-то в снегу у самого фонаря.</p></div><img class="plush-scene" src="assets/plush-detective.png" alt="Плюш у городской площади"><button class="note" aria-label="Открыть записку" onclick="readNote()">записка</button><div class="tap">Нажмите на записку</div>
+    <section class="opened-note"><h3>Записка для Плюша</h3><p>«Новый год не украли.<br>Его спрятали там,<br>где никто не спешит».</p><button class="btn" onclick="location.href='quest.html'">Начать расследование →</button></section>
+  </main>
+  <main class="screen map-screen" id="map">
+    <div class="snow"></div>
+    <header class="map-head"><div class="eyebrow">Карта расследования</div><h2>Снегоград</h2><p>Искры праздника спрятались в четырёх уголках города.</p></header>
+    <img class="map-plush" id="mapPlush" src="assets/plush-detective.png" alt="Плюш на карте">
+    <button class="pin one active" data-stage="0" onclick="choosePoint(0)"><span>🕰️</span></button>
+    <button class="pin two" data-stage="1" onclick="choosePoint(1)" disabled><span>✉️</span></button>
+    <button class="pin three" data-stage="2" onclick="choosePoint(2)" disabled><span>🌲</span></button>
+    <button class="pin four" data-stage="3" onclick="choosePoint(3)" disabled><span>🔭</span></button>
+    <button class="final-link" id="finalLink" hidden onclick="location.href='final.html'"><span>✦</span> Праздничная площадь</button>
+    <div class="map-key"><b>Путь Плюша</b><span id="mapProgress">1 из 4 локаций открыта</span></div>
+    <section class="map-card" id="mapCard"><h3 id="cardTitle"></h3><p id="cardText"></p><button class="btn" onclick="startTask()">Начать задание →</button><button class="back" onclick="closeCard()">Вернуться к карте</button></section>
+  </main>
+  <script>
+    const places=[
+      {title:'Площадь застывших часов',text:'Здесь остановилось время. Плюш должен найти первую искру — ту, с которой начинается тёплый вечер.'},
+      {title:'Туманный почтамт',text:'Во втором районе ждёт письмо, которое так и не дошло до адресата.'},
+      {title:'Лес потерянных даров',text:'Третья искра спрятана среди тропинок и забытых подарков.'},
+      {title:'Крыши звездочётов',text:'В обсерватории Плюш наконец узнает, куда исчезла Главная Звезда.'}
+    ];
+ const catStops=[['3%','69%'],['18%','34%'],['65%','29%'],['68%','68%']];let current=0,selected=0;
+    function openScene(){start.classList.remove('active');square.classList.add('active')}
+    function readNote(){square.classList.add('note-open')}
+    document.querySelector('.opened-note .btn').onclick=function(){square.classList.remove('active');map.classList.add('active');return false}
+    function choosePoint(index){if(index!==current)return;selected=index;cardTitle.textContent=places[index].title;cardText.textContent=places[index].text;mapCard.classList.add('show')}
+    function closeCard(){mapCard.classList.remove('show')}
+    function startTask(){location.href='quest.html?stage='+selected}
+    function updateMapState(){document.querySelectorAll('.pin').forEach((pin,i)=>{pin.disabled=i>current;pin.classList.toggle('active',i===current);pin.classList.toggle('done',i<current)});mapProgress.textContent=`${Math.min(current+1,4)} из 4 локаций открыта`}
+    function markComplete(index){if(index!==current)return;current=Math.min(3,current+1);updateMapState();mapProgress.textContent='Плюш идёт к новой локации…';let [x,y]=catStops[current];requestAnimationFrame(()=>{mapPlush.style.left=x;mapPlush.style.top=y});window.setTimeout(()=>{mapProgress.textContent=`${Math.min(current+1,4)} из 4 локаций открыта`},1800)}
+  </script>
+  <script>
+    const returnedStep=Number(new URLSearchParams(location.search).get('completed'));
+    if(returnedStep>0){
+      current=Math.min(3,returnedStep-1);
+      const [x,y]=catStops[current];
+      mapPlush.classList.add('no-transition');mapPlush.style.left=x;mapPlush.style.top=y;updateMapState();
+      document.querySelector('#start').classList.remove('active');
+      document.querySelector('#map').classList.add('active');
+      requestAnimationFrame(()=>requestAnimationFrame(()=>{mapPlush.classList.remove('no-transition');markComplete(current)}));
+      if(returnedStep>=4)document.querySelector('#finalLink').hidden=false;
+    }
+  </script>
+</body>
+</html>
+
