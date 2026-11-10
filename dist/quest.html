@@ -12,6 +12,22 @@
   <style>
     .post .clue.sorted{pointer-events:none}.post .clue.sorted:before{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:clamp(28px,5vw,58px);font-weight:900;text-shadow:0 0 15px #fff}.post .clue.delivered:before{content:'✦';color:#fff0a6}.post .clue.returned:before{content:'↶';color:#d5e5f4}.post .clue.sorted:after{border-color:#ffe297;box-shadow:0 0 0 5px #eabb6877,0 0 20px #f7c967}.feedback .secondary{margin-left:8px;background:#d8e1e5;color:#394453;box-shadow:0 5px 0 #9eacb2}.feedback .secondary:hover{transform:translateY(-2px)}.observatory:before{background-image:url("assets/observatory-task.png")}.observatory .hint{display:none}.observatory .spark{left:38%;top:18%;font-size:clamp(80px,16vw,180px)}.observatory.stars-restored:after{background:radial-gradient(circle at 38% 18%,#fff5bb44,transparent 17%),linear-gradient(180deg,rgba(5,23,45,.46),transparent 35%,transparent 67%,rgba(5,23,45,.55))}.dial-panel{position:absolute;z-index:7;left:50%;bottom:clamp(18px,4vw,38px);transform:translateX(-50%);width:min(640px,calc(100% - 32px));padding:16px 18px 15px;background:#102d4bea;border:1px solid #f8d98988;border-radius:20px;text-align:center;box-shadow:0 15px 36px #0017;backdrop-filter:blur(8px)}.dial-clue{margin:0 auto 12px;max-width:550px;font:15px/1.35 Georgia,serif;color:#fff7df}.dial-row{display:flex;justify-content:center;gap:clamp(10px,3vw,24px);margin:4px 0 12px}.dial{display:grid;place-items:center;width:clamp(57px,10vw,82px);aspect-ratio:1;border:2px solid #f6d77c;border-radius:50%;background:radial-gradient(circle at 35% 30%,#355d7d,#14304e 67%);box-shadow:inset 0 0 0 5px #d0a64d44,0 4px 0 #071a2f;color:#fff1b6;font-size:clamp(30px,5vw,47px);cursor:pointer;transition:.18s transform}.dial:hover{transform:rotate(12deg) scale(1.07)}.dial:focus-visible{outline:3px solid #fff5c4;outline-offset:3px}.dial-action{margin-top:0}.dial-panel.shake{animation:shake .35s linear}@keyframes shake{25%{transform:translateX(calc(-50% - 8px))}75%{transform:translateX(calc(-50% + 8px))}}@media(max-width:480px){.feedback .secondary{margin-left:0}.dial-panel{padding:13px 11px}.dial-clue{font-size:13px}}
   </style>
+  <style>
+    @media (max-width:700px) and (orientation:portrait){
+      .scene{background:#102e4b}
+      .scene:before{background-size:100% auto;background-position:center top;background-repeat:no-repeat}
+      .scene:after{background:linear-gradient(180deg,rgba(5,23,45,.48),transparent 30vw,rgba(5,23,45,.08) 88vw,#102e4b 116vw)}
+      .top{top:15px;width:calc(100% - 28px)}
+      .eyebrow{font-size:10px}.top h1{font-size:28px;margin:5px 0 7px}.top p{font-size:13px;line-height:1.35}
+      .clock .mittens{left:17%;top:76vw;width:22vw;height:16vw}.clock .tea{left:51%;top:75vw;width:30vw;height:18vw}.clock .bell{left:85%;top:76vw;width:17vw;height:16vw}
+      .post .letter-one{left:34%;top:78vw;width:22vw;height:15vw}.post .letter-two{left:51%;top:78vw;width:22vw;height:15vw}.post .letter-three{left:68%;top:78vw;width:22vw;height:15vw}
+      .forest .train{left:25%;top:70vw;width:29vw;height:21vw}.forest .trophy{left:51%;top:68vw;width:24vw;height:23vw}.forest .puzzle{left:76%;top:70vw;width:28vw;height:21vw}
+      .clock .spark{top:65vw}.post .spark{top:66vw}.forest .spark{top:57vw}
+      .hint{top:calc(108vw + 14px);bottom:auto;max-width:calc(100% - 28px);white-space:normal;text-align:center;font-size:11px}
+      .feedback{top:52%;width:calc(100% - 28px);padding:23px 19px}.feedback h2{font-size:29px}
+      .dial-panel{bottom:16px;padding:13px 12px}.dial-clue{font-size:13px}.dial{width:61px;font-size:33px}
+    }
+  </style>
 </head>
 <body>
   <main class="scene" id="scene">
