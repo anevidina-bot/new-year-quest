@@ -29,6 +29,42 @@
   <style>
     .final-link{position:absolute;z-index:8;right:clamp(15px,3vw,36px);top:clamp(16px,3vw,30px);display:inline-flex;align-items:center;gap:8px;border:1px solid #fff0b3;background:#a84750;color:#fff9e8;border-radius:999px;padding:10px 14px;font:800 13px/1 ui-rounded,"Trebuchet MS",system-ui,sans-serif;box-shadow:0 5px 0 #592c43,0 9px 19px #0018;cursor:pointer;animation:finalGlow 1.5s ease-in-out infinite alternate}.final-link:hover{transform:translateY(-2px)}.final-link span{font-size:19px;color:#ffe39a}@keyframes finalGlow{to{box-shadow:0 5px 0 #592c43,0 0 0 6px #f7ce6a55,0 9px 19px #0018}}@media(max-width:720px){.final-link{top:auto;bottom:70px;right:15px;padding:9px 12px;font-size:12px}}
   </style>
+  <style>
+    /* Portrait phones: the illustration keeps its own proportions, and every
+       pin is positioned against the illustration rather than the tall screen. */
+    @media (max-width:720px) and (orientation:portrait){
+      .title-screen:before{background-size:auto 100%;background-position:58% center}
+      .title-screen .content{padding:calc(30px + env(safe-area-inset-top)) 20px calc(22px + env(safe-area-inset-bottom));}
+      .title-screen .copy{max-width:315px}
+      .title-screen .title{font-size:clamp(42px,13vw,58px);margin:13px 0 16px}
+      .title-screen .lead{font-size:15px;line-height:1.45}
+      .title-screen .btn{margin-top:20px;padding:13px 16px;font-size:14px}
+      .title-screen .plush{position:absolute;right:13px;bottom:25px;width:min(43vw,175px);max-height:none}
+      .title-screen .footer{left:18px;bottom:10px;font-size:10px}
+
+      .scene{background:#102e4b}
+      .scene:before{background-size:100% auto;background-position:center top;background-repeat:no-repeat}
+      .scene:after{background:linear-gradient(180deg,rgba(5,23,45,.28),transparent 44vw,rgba(5,23,45,.36) 88vw,#102e4b 115vw)}
+      .scene .note{top:76vw;left:50%;width:86px}
+      .scene .plush-scene{top:62vw;right:4vw;bottom:auto;width:27vw}
+      .scene .opened-note{margin-top:54px}
+
+      .map-screen{display:block;background:#102e4b}
+      .map-screen:before{background-size:100% auto;background-position:center top;background-repeat:no-repeat}
+      .map-screen:after{background:linear-gradient(180deg,rgba(7,25,48,.34),transparent 28vw,rgba(7,25,48,.12) 84vw,#102e4b 112vw)}
+      .map-head{top:16px;width:calc(100% - 30px)}
+      .map-head h2{font-size:31px;margin:4px 0}
+      .map-head p{font-size:12px}
+      .pin{width:42px;height:42px}
+      .pin span{font-size:18px}
+      .pin.one{left:16%;top:76vw}.pin.two{left:34%;top:40vw}.pin.three{left:82%;top:38vw}.pin.four{left:84%;top:77vw}
+      .map-plush{width:68px}
+      .map-key{top:calc(106vw + 14px);bottom:auto;font-size:11px;max-width:calc(100% - 28px);white-space:normal;text-align:center;justify-content:center}
+      .map-card{top:53vw;padding:21px 19px}
+      .map-card h3{font-size:25px}
+      .final-link{bottom:18px;right:14px}
+    }
+  </style>
 </head>
 <body>
   <main class="screen title-screen active" id="start">
@@ -58,7 +94,9 @@
       {title:'Лес потерянных даров',text:'Третья искра спрятана среди тропинок и забытых подарков.'},
       {title:'Крыши звездочётов',text:'В обсерватории Плюш наконец узнает, куда исчезла Главная Звезда.'}
     ];
- const catStops=[['3%','69%'],['18%','34%'],['65%','29%'],['68%','68%']];let current=0,selected=0;
+ const catStops=[['3%','69%'],['18%','34%'],['65%','29%'],['68%','68%']];
+ const portraitCatStops=[['3vw','69vw'],['18vw','34vw'],['65vw','29vw'],['68vw','68vw']];
+ const catStop=index=>matchMedia('(max-width:720px) and (orientation:portrait)').matches?portraitCatStops[index]:catStops[index];let current=0,selected=0;
     function openScene(){start.classList.remove('active');square.classList.add('active')}
     function readNote(){square.classList.add('note-open')}
     document.querySelector('.opened-note .btn').onclick=function(){square.classList.remove('active');map.classList.add('active');return false}
@@ -66,13 +104,13 @@
     function closeCard(){mapCard.classList.remove('show')}
     function startTask(){location.href='quest.html?stage='+selected}
     function updateMapState(){document.querySelectorAll('.pin').forEach((pin,i)=>{pin.disabled=i>current;pin.classList.toggle('active',i===current);pin.classList.toggle('done',i<current)});mapProgress.textContent=`${Math.min(current+1,4)} из 4 локаций открыта`}
-    function markComplete(index){if(index!==current)return;current=Math.min(3,current+1);updateMapState();mapProgress.textContent='Плюш идёт к новой локации…';let [x,y]=catStops[current];requestAnimationFrame(()=>{mapPlush.style.left=x;mapPlush.style.top=y});window.setTimeout(()=>{mapProgress.textContent=`${Math.min(current+1,4)} из 4 локаций открыта`},1800)}
+    function markComplete(index){if(index!==current)return;current=Math.min(3,current+1);updateMapState();mapProgress.textContent='Плюш идёт к новой локации…';let [x,y]=catStop(current);requestAnimationFrame(()=>{mapPlush.style.left=x;mapPlush.style.top=y});window.setTimeout(()=>{mapProgress.textContent=`${Math.min(current+1,4)} из 4 локаций открыта`},1800)}
   </script>
   <script>
     const returnedStep=Number(new URLSearchParams(location.search).get('completed'));
     if(returnedStep>0){
       current=Math.min(3,returnedStep-1);
-      const [x,y]=catStops[current];
+      const [x,y]=catStop(current);
       mapPlush.classList.add('no-transition');mapPlush.style.left=x;mapPlush.style.top=y;updateMapState();
       document.querySelector('#start').classList.remove('active');
       document.querySelector('#map').classList.add('active');
