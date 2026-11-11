@@ -28,6 +28,27 @@
       .dial-panel{bottom:16px;padding:13px 12px}.dial-clue{font-size:13px}.dial{width:61px;font-size:33px}
     }
   </style>
+  <style>
+    /* The task art is 16:9. On a portrait phone its interactive zones must
+       follow that frame rather than the full screen height. */
+    @media (max-width:720px) and (orientation:portrait){
+      .scene{min-height:100dvh;height:100dvh;background:#102e4b}
+      .scene:before{background-size:100% auto;background-position:center top;background-repeat:no-repeat}
+      .scene:after{background:linear-gradient(180deg,rgba(5,23,45,.44),transparent 38vw,rgba(5,23,45,.42) 56.3vw,#102e4b 76vw)}
+      .top{top:10px;width:calc(100% - 22px)}
+      .eyebrow{font-size:9px}.top h1{font-size:25px;margin:3px 0 5px}.top p{max-width:355px;font-size:11px;line-height:1.28}
+      .clock .mittens{left:17%;top:43vw;width:20vw;height:13vw}.clock .tea{left:51%;top:42vw;width:28vw;height:15vw}.clock .bell{left:85%;top:43vw;width:15vw;height:13vw}
+      .post .letter-one{left:34%;top:45vw;width:20vw;height:12vw}.post .letter-two{left:51%;top:45vw;width:20vw;height:12vw}.post .letter-three{left:68%;top:45vw;width:20vw;height:12vw}
+      .forest .train{left:25%;top:40vw;width:28vw;height:18vw}.forest .trophy{left:51%;top:39vw;width:22vw;height:20vw}.forest .puzzle{left:76%;top:40vw;width:27vw;height:18vw}
+      .clock .spark,.post .spark{top:37vw}.forest .spark{top:31vw}
+      .hint{top:calc(56.3vw + 16px);bottom:auto;max-width:calc(100% - 28px);white-space:normal;text-align:center;font-size:11px}
+      .feedback{position:fixed;left:14px;right:14px;top:50%;width:auto;max-height:calc(100dvh - 28px);overflow:auto;padding:22px 18px;transform:translateY(-50%)}
+      .feedback.show{animation:mobile-feedback-arrive .35s cubic-bezier(.18,.8,.3,1) both}
+      .feedback h2{font-size:27px}.feedback p{font-size:15px;line-height:1.42}
+      .dial-panel{position:fixed;bottom:14px;width:calc(100% - 28px);padding:12px 10px}.dial-clue{font-size:12px}.dial{width:57px;font-size:30px}
+    }
+    @keyframes mobile-feedback-arrive{from{opacity:0;transform:translateY(-45%) scale(.88)}to{opacity:1;transform:translateY(-50%) scale(1)}}
+  </style>
 </head>
 <body>
   <main class="scene" id="scene">
