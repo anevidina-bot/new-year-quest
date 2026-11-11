@@ -65,6 +65,36 @@
       .final-link{bottom:18px;right:14px}
     }
   </style>
+  <style>
+    /* Portrait phones use the artwork's 16:9 frame as the coordinate system.
+       This keeps markers and the note on the illustration, not below it. */
+    .map-card.show{animation:map-card-arrive .35s ease both}
+    @keyframes map-card-arrive{from{opacity:0;transform:translate(-50%,-50%) rotate(-6deg) scale(.72)}to{opacity:1;transform:translate(-50%,-50%) rotate(-1deg) scale(1)}}
+    @media (max-width:720px) and (orientation:portrait){
+      .screen{min-height:100dvh;height:100dvh}
+      .scene:before,.map-screen:before{background-size:100% auto;background-position:center top;background-repeat:no-repeat}
+      .scene:after{background:linear-gradient(180deg,rgba(5,23,45,.28),transparent 45vw,rgba(5,23,45,.5) 56.3vw,#102e4b 75vw)}
+      .scene .note{top:43vw;left:51%;width:86px}
+      .scene .plush-scene{top:36vw;right:5vw;bottom:auto;width:25vw}
+      .scene .opened-note{margin-top:0}
+
+      .map-screen{background:#102e4b}
+      .map-screen:after{background:linear-gradient(180deg,rgba(7,25,48,.32),transparent 45vw,rgba(7,25,48,.45) 56.3vw,#102e4b 76vw)}
+      .map-head{top:8px;width:calc(100% - 24px)}
+      .map-head .eyebrow{font-size:9px;letter-spacing:.12em}
+      .map-head h2{font-size:28px;margin:2px 0}
+      .map-head p{font-size:11px;line-height:1.25}
+      .pin{width:42px;height:42px}.pin span{font-size:18px}
+      .pin.one{left:15%;top:42.8vw}.pin.two{left:35%;top:20.8vw}.pin.three{left:82%;top:20.8vw}.pin.four{left:85%;top:38.3vw}
+      .map-plush{width:18vw;left:3vw;top:38.8vw}
+      .map-key{top:calc(56.3vw + 14px);bottom:auto;max-width:calc(100% - 28px);font-size:11px;white-space:normal;text-align:center;justify-content:center}
+      .map-card{position:fixed;left:16px;right:16px;top:50%;width:auto;max-height:calc(100dvh - 32px);overflow:auto;padding:22px 18px;transform:translateY(-50%)}
+      .map-card.show{animation:mobile-map-card-arrive .35s ease both}
+      .map-card h3{font-size:25px}.map-card p{font-size:15px}
+      .final-link{top:calc(56.3vw + 78px);bottom:auto;right:14px}
+    }
+    @keyframes mobile-map-card-arrive{from{opacity:0;transform:translateY(-50%) rotate(-5deg) scale(.82)}to{opacity:1;transform:translateY(-50%) rotate(-1deg) scale(1)}}
+  </style>
 </head>
 <body>
   <main class="screen title-screen active" id="start">
